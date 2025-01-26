@@ -8,7 +8,7 @@ async def echo_handler(message: types.Message):
 
 
 
-def register_handler(dp: Dispatcher):
+def register_handlers(dp: Dispatcher):
     dp.register_message_handler(echo_handler)
 
 

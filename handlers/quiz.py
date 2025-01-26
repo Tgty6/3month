@@ -29,11 +29,6 @@ async def quiz_1(message: types.Message):
     )
 
 async def quiz_2(call: types.CallbackQuery):
-    keyboard = InlineKeyboardMarkup(resize_keyboard=True)
-
-    button = InlineKeyboardButton('Далее', callback_data='button2')
-
-    keyboard.add(button)
 
     photo_path = os.path.join('media', 'img_1.png')
 

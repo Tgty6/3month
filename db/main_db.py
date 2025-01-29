@@ -58,12 +58,32 @@ def fetch_all_products():
     conn.close()
     return products
 
+def fetch_fetch_all_collections():
+    conn = get_db_connection()
+    products = conn.execute("""
+    SELECT * from store s
+    INNER JOIN store_detail  sd 
+    ON s.product_id = sd.product_id
+    INNER JOIN collections c
+    ON s.product_id = c.productid
+    """).fetchall()
+    conn.close()
+    return products
+
 
 def delete_product(product_id):
     conn = get_db_connection()
 
     conn.execute('DELETE FROM store WHERE product_id = ?', (product_id,))
     conn.execute('DELETE FROM store_detail WHERE product_id = ?', (product_id,))
+
+    conn.commit()
+    conn.close()
+
+def delete_collections(product_id):
+    conn = get_db_connection()
+
+    conn.execute('DELETE FROM collections WHERE product_id = ?', (product_id,))
 
     conn.commit()
     conn.close()
@@ -95,3 +115,7 @@ def update_product_field(product_id, field_name, new_value):
 
     finally:
         conn.close()
+
+
+def fetch_all_collections():
+    return None

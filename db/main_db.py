@@ -80,13 +80,7 @@ def delete_product(product_id):
     conn.commit()
     conn.close()
 
-def delete_collections(product_id):
-    conn = get_db_connection()
 
-    conn.execute('DELETE FROM collections WHERE product_id = ?', (product_id,))
-
-    conn.commit()
-    conn.close()
 
 
 # CRUD - update

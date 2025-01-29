@@ -3,6 +3,7 @@ from aiogram.dispatcher.filters import Text
 from aiogram.dispatcher.filters.state import State, StatesGroup
 from aiogram.dispatcher import FSMContext
 from db import main_db
+from aiogram.types import ReplyKeyboardMarkup, KeyboardButton, ReplyKeyboardRemove
 import buttons
 
 
@@ -17,6 +18,11 @@ class StoreFSM(StatesGroup):
     photo = State()
     submit = State()
 
+
+size_keyboard = ReplyKeyboardMarkup(resize_keyboard=True, one_time_keyboard=True)
+sizes = ["S", "M", "L", "XL", "XXL", "3XL"]
+size_keyboard.add(*sizes)
+
 async def start_fsm_store(message: types.Message):
     await message.answer('Введите название товара:', reply_markup=buttons.cancel)
     await StoreFSM.name_product.set()
@@ -25,11 +31,12 @@ async def name_load (message: types.Message, state: FSMContext):
     async with state.proxy() as data:
         data['name_product'] = message.text
 
+
+    await message.answer("Выберите размер из предложенных!", reply_markup=size_keyboard)
     await StoreFSM.next()
-    await message.answer('Введите размер:')
 
 
-async def size_load (message: types.Message, state: FSMContext):
+async def size_load(message: types.Message, state: FSMContext):
     async with state.proxy() as data:
         data['size_product'] = message.text
 
@@ -81,6 +88,10 @@ async def photo_load (message: types.Message, state: FSMContext):
                                        f'Инфо - {data["info_product"]}\n'
                                        f'Цена - {data["price_product"]}\n'
                                       f'Kоллекция - {data["collections"]}\n', reply_markup=buttons.submit)
+
+
+    await message.answer("Товар успешно добавлен!", reply_markup=types.ReplyKeyboardRemove())
+
 
 async def collection_load (message: types.Message, state: FSMContext):
     async with state.proxy() as data:

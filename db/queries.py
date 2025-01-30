@@ -58,4 +58,3 @@ INSERT_collections_query = """
     INSERT INTO collections (collection, product_id)
     VALUES (?, ?)
 """
-

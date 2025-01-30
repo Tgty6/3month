@@ -41,7 +41,7 @@ async def quiz_2(call: types.CallbackQuery):
         options=answer,
         is_anonymous=True,
         type='quiz',
-        correct_option_id=1,
+        correct_option_id=0,
         explanation='Эх ты...',
         open_period=60,
         reply_markup=keyboard)

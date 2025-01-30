@@ -23,8 +23,9 @@ async def mem_handler(message: types.Message):
                              caption='Это мем')
 
 
-dice_random = random.choice(['⚽', '🎰', '🏀', '🎯', '🎳', '🎲'])
+
 async def game(message: types.Message):
+    dice_random = random.choice(['⚽', '🎰', '🏀', '🎯', '🎳', '🎲'])
     await bot.send_dice(chat_id=message.from_user.id, emoji=dice_random)
 
     bot_message = await bot.send_dice(chat_id=message.from_user.id, emoji=dice_random)

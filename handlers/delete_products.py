@@ -26,7 +26,8 @@ async def send_all_products(call: types.CallbackQuery):
                        f'Категория - {product["category"]}\n'
                        f'Артикул - {product["product_id"]}\n'
                        f'Информация о товаре - {product["info_product"]}\n'
-                       f'Цена - {product["price"]}\n')
+                       f'Цена - {product["price"]}\n'
+                       f'Коллекция - {product["collection_name"]}\n')
 
             keyboard = types.InlineKeyboardMarkup(resize_keyboard=True)
             delete_button = types.InlineKeyboardButton('Delete',

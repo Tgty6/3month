@@ -87,7 +87,7 @@ async def photo_load (message: types.Message, state: FSMContext):
                                        f'Артикул - {data["products_id"]}\n'
                                        f'Инфо - {data["info_product"]}\n'
                                        f'Цена - {data["price_product"]}\n'
-                                      f'Kоллекция - {data["collections"]}\n', reply_markup=buttons.submit)
+                                       f'Kоллекция - {data["collections"]}\n', reply_markup=buttons.submit)
 
 
     await message.answer("Товар успешно добавлен!", reply_markup=types.ReplyKeyboardRemove())

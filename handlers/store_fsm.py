@@ -7,6 +7,7 @@ from aiogram.types import ReplyKeyboardMarkup, KeyboardButton, ReplyKeyboardRemo
 import buttons
 
 
+
 class StoreFSM(StatesGroup):
     name_product = State()
     size = State()

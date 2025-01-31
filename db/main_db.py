@@ -1,14 +1,12 @@
 import sqlite3
 from db import queries
 
-# db = sqlite3.connect('db/registered.sqlite3')
 db = sqlite3.connect('db/store.sqlite3')
 cursor = db.cursor()
 
 async def create_db():
     if db:
         print('База данных подключена')
-    # cursor.execute(queries.CREATE_TABLE_registered)
     cursor.execute(queries.CREATE_TABLE_store)
     cursor.execute(queries.CREATE_TABLE_store_detail)
     cursor.execute(queries.CREATE_TABLE_collections)
@@ -41,7 +39,6 @@ async def sql_insert_collection(product_id, collection):
     db.commit()
 
 
-# CRUD - 1
 # ==================================================================
 def get_db_connection():
     conn = sqlite3.connect('db/store.sqlite3')
@@ -81,9 +78,6 @@ def delete_product(product_id):
     conn.close()
 
 
-
-
-# CRUD - update
 # ==================================================================
 
 def update_product_field(product_id, field_name, new_value):

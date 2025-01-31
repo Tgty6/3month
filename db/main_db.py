@@ -39,6 +39,8 @@ async def sql_insert_collection(product_id, collection):
     db.commit()
 
 
+
+
 # ==================================================================
 def get_db_connection():
     conn = sqlite3.connect('db/store.sqlite3')
@@ -76,6 +78,8 @@ def delete_product(product_id):
 
     conn.commit()
     conn.close()
+
+
 
 
 # ==================================================================

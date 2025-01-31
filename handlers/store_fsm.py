@@ -15,9 +15,9 @@ class StoreFSM(StatesGroup):
     category = State()
     info_product = State()
     products_id = State()
-    collections = State()
     photo = State()
     submit = State()
+    collections = State()
 
 
 size_keyboard = ReplyKeyboardMarkup(resize_keyboard=True, one_time_keyboard=True)

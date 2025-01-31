@@ -16,6 +16,7 @@ INSERT_registered_query = """
 
 
 
+
 CREATE_TABLE_store = """
     CREATE TABLE IF NOT EXISTS store (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -31,6 +32,7 @@ INSERT_store_query = """
     INSERT INTO store (name_product, size, price, photo, product_id)
     VALUES (?, ?, ?, ?, ?)
 """
+
 
 
 CREATE_TABLE_store_detail = """
